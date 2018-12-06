@@ -31,8 +31,8 @@ def check_rt_internet_facing(facing, route_table):  # pragma: no cover
         return len(routes_facing_igw) == 0 and len(routes_facing_nat) > 0, nat_id  # yapf: disable
 
 
-def get_vpc_facts(vpc_id):  # pragma: no cover
-    ec2_c = boto3.resource('ec2')
+def get_vpc_facts(vpc_id, region_name='ap-southeast-2'):  # pragma: no cover
+    ec2_c = boto3.resource('ec2', region_name=region_name)
     vpc_c = ec2_c.Vpc(id=vpc_id)
 
     vpc = dict(id=vpc_id, cidr=vpc_c.cidr_block)

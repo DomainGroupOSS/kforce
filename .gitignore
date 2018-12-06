@@ -29,3 +29,4 @@ vars/
 __generated__/
 
 .mypy_cache
+\.idea/
