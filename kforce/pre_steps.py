@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 
 def ensure_aws_facts(self):
-    self.vpc_facts = get_vpc_facts(vpc_id=self.vpc_id)
+    self.vpc_facts = get_vpc_facts(vpc_id=self.vpc_id, region_name=self.region)
     logger.debug('vpc_facts -> \n%s', pformat(self.vpc_facts, indent=4, width=120))
 
 
